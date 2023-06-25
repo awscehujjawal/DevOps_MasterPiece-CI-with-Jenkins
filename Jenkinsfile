@@ -5,9 +5,9 @@ pipeline {
         NAME = "spring-app"
         VERSION = "${env.BUILD_ID}"
         GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
-        IMAGE_REPO = "praveensirvi"
+        IMAGE_REPO = "ujjawaldevops"
         GIT_REPO_NAME = "DevOps_MasterPiece-CD-with-argocd"
-        GIT_USER_NAME = "praveensirvi1212"
+        GIT_USER_NAME = "awscehujjawal"
        
     }
 
@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('Checkout git') {
             steps {
-              git branch: 'main', url:'https://github.com/praveensirvi1212/DevOps_MasterPiece-CI-with-Jenkins.git'
+              git branch: 'main', url:'https://github.com/awscehujjawal/DevOps_MasterPiece-CI-with-Jenkins.git'
             }
         }
         
