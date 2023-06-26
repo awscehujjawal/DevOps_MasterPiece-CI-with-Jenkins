@@ -50,13 +50,13 @@ pipeline {
         stage('Deploy to Artifactory') {
             environment {
                 // Define the target repository in Artifactory
-                TARGET_REPO = 'my-local-repo'
+                TARGET_REPO = 'my-localrepo'
             }
             
             steps {
                 script {
                     try {
-                        def server = Artifactory.newServer url: 'http://13.232.95.58:8082/artifactory', credentialsId: 'jfrog-cred'
+                        def server = Artifactory.newServer url: 'http://54.235.63.217/:8082/artifactory', credentialsId: 'ujjawal'
                         def uploadSpec = """{
                             "files": [
                                 {
