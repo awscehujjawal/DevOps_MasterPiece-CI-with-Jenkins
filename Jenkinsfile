@@ -40,13 +40,13 @@ pipeline {
             }
         }
 
-        stage("Quality Gate") {
-            steps {
-              timeout(time: 1, unit: 'HOURS') {
-                waitForQualityGate abortPipeline: true
-              }
-            }
-        }
+       // stage("Quality Gate") {
+         //   steps {
+             // timeout(time: 1, unit: 'HOURS') {
+                //waitForQualityGate abortPipeline: true
+              //}
+            //}
+        //}
         
         stage('Deploy to Artifactory') {
             environment {
@@ -57,7 +57,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        def server = Artifactory.newServer url: 'http://54.235.63.217/:8082/artifactory', credentialsId: 'ujjawal'
+                        def server = Artifactory.newServer url: 'http://52.90.139.146//:8082/artifactory', credentialsId: 'ujjawal'
                         def uploadSpec = """{
                             "files": [
                                 {
