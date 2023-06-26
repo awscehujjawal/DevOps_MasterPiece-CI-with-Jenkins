@@ -29,7 +29,7 @@ pipeline {
 
         stage('SonarQube Analysis'){
             steps{
-                withSonarQubeEnv('Sonar') {
+                withSonarQubeEnv('sonar') {
                         sh '''mvn clean verify sonar:sonar \
                         -Dsonar.projectKey=gitops-with-argocd \
                         -Dsonar.projectName='gitops-with-argocd' \
