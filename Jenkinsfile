@@ -92,7 +92,7 @@ pipeline {
         stage('Upload Scan report to AWS S3') {
              steps {
                   
-                  sh 'aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"  && aws configure set aws_secret_access_key "$AWS_ACCESS_KEY_SECRET"  && aws configure set region ap-south-1  && aws configure set output "json"' 
+                  sh 'aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"  && aws configure set aws_secret_access_key "$AWS_ACCESS_KEY_SECRET"  && aws configure set region us-east-1  && aws configure set output "json"' 
                   sh 'aws s3 cp report.html s3://devopsbucketuc/'
               }
         }
