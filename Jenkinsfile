@@ -57,7 +57,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        def server = Artifactory.newServer url: 'http://52.90.139.146//:8082/artifactory', credentialsId: 'ujjawal'
+                        def server = Artifactory.newServer url: 'http://52.90.139.146//:8082/artifactory', credentialsId: 'jfrog'
                         def uploadSpec = """{
                             "files": [
                                 {
