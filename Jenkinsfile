@@ -12,7 +12,7 @@ pipeline {
         GIT_REPO_NAME = "DevOps_MasterPiece-CD-with-argocd"
         GIT_USER_NAME = "awscehujjawal"
         ACCESS_KEY = credentials('AWS_ACCESS_KEY_ID')
-        SECRET_KEY = credentials('AWS_SECRET_KEY_ID')
+        SECRET_KEY = credentials('AWS_ACCESS_KEY_SECRET')
        
     }
     stages {
