@@ -33,7 +33,7 @@ pipeline {
                         sh '''mvn clean verify sonar:sonar \
                         -Dsonar.projectKey=sonardemo \
                         -Dsonar.projectName='sonardemo' \
-                        -Dsonar.host.url=http://52.91.111.233:9000 \
+                        -Dsonar.host.url=http://107.23.128.86:9000 \ 
                         -Dsonar.token=sqp_82447bb38728ad5a322b6cb98d1602729b6721a1
                 }
             }
