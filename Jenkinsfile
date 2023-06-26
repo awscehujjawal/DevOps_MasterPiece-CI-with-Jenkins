@@ -101,7 +101,7 @@ pipeline {
         stage ('Docker Image Push') {
             steps {
                 //withVault(configuration: [skipSslVerification: true, timeout: 60, vaultCredentialId: 'vault-token', vaultUrl: 'http://13.232.53.209:8200'], vaultSecrets: [[path: 'secrets/creds/docker', secretValues: [[vaultKey: 'username'], [vaultKey: 'password']]]]) {
-                withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'Devops@777', usernameVariable: 'ujjawaldevops')]) {
+                withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'password ', usernameVariable: 'username ')]) {
     
                     
                     sh "docker login -u ${username} -p ${password} "
