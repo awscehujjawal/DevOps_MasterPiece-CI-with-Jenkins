@@ -31,13 +31,13 @@ pipeline {
             steps{
                 withSonarQubeEnv('SonarQube-server') {
                         sh '''mvn clean verify sonar:sonar \
-                        -Dsonar.projectKey=gitops-with-argocd \
-                        -Dsonar.projectName='gitops-with-argocd' \
-                        -Dsonar.host.url=$sonarurl \
-                        -Dsonar.login=$sonarlogin'''
+                        -Dsonar.projectKey=sonardemo \
+                        -Dsonar.projectName='sonardemo' \
+                        -Dsonar.host.url=http://52.91.111.233:9000 \
+                        -Dsonar.token=sqp_82447bb38728ad5a322b6cb98d1602729b6721a1
+
                 }
             }
-        }
 
         stage("Quality Gate") {
             steps {
