@@ -31,10 +31,11 @@ pipeline {
             steps{
                 withSonarQubeEnv('SonarQube-server') {
                         sh '''mvn clean verify sonar:sonar \
-                        -Dsonar.projectKey=sonardemo \
-                        -Dsonar.projectName='sonardemo' \
-                        -Dsonar.host.url=http://107.23.128.86:9000\ 
-                        -Dsonar.token=sqp_82447bb38728ad5a322b6cb98d1602729b6721a1
+                        -Dsonar.projectKey=sonarproject \
+                        -Dsonar.projectName='sonarproject' \
+                        -Dsonar.host.url=http://107.23.128.86:9000 \
+                        -Dsonar.token=sqp_ed2ce29f9fe4866062c4cd1bab82fbbf59c1252d
+
                 }
             }
         }
