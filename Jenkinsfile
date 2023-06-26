@@ -8,6 +8,8 @@ pipeline {
         IMAGE_REPO = "ujjawaldevops"
         GIT_REPO_NAME = "DevOps_MasterPiece-CD-with-argocd"
         GIT_USER_NAME = "awscehujjawal"
+        ACCESS_KEY = credentials('AWS_ACCESS_KEY_ID')
+        SECRET_KEY = credentials('AWS_SECRET_KEY_ID')
        
     }
 
@@ -92,7 +94,7 @@ pipeline {
         stage('Upload Scan report to AWS S3') {
              steps {
                   
-                  //sh 'aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"  && aws configure set aws_secret_access_key "$AWS_ACCESS_KEY_SECRET"  && aws configure set region us-east-1  && aws configure set output "json"' 
+                  sh 'aws configure set aws_access_key_id "$ACCESS_KEY"  && aws configure set aws_secret_access_key "$SECRET_KEY"  && aws configure set region us-east-1  && aws configure set output "json"' 
                   sh 'aws s3 cp report.html s3://devopsbucketuc/'
               }
         }
