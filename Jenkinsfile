@@ -1,7 +1,10 @@
 pipeline {
     agent any
 
-    environment {
+    tools { 
+        maven 'maven-3.8.6' 
+    }
+     environment {
         NAME = "spring-app"
         VERSION = "${env.BUILD_ID}"
         GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
@@ -11,10 +14,6 @@ pipeline {
         ACCESS_KEY = credentials('AWS_ACCESS_KEY_ID')
         SECRET_KEY = credentials('AWS_SECRET_KEY_ID')
        
-    }
-
-    tools { 
-        maven 'maven-3.8.6' 
     }
     stages {
         stage('Checkout git') {
