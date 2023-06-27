@@ -123,7 +123,7 @@ pipeline {
 
                     } else {
                         echo 'Repo does not exists - Cloning the repo'
-                        sh 'git clone -b feature https://github.com/praveensirvi1212/DevOps_MasterPiece-CD-with-argocd.git'
+                        sh 'git clone -b feature https://github.com/awscehujjawal/DevOps_MasterPiece-CD-with-argocd.git'
                     }
                 }
             }
@@ -132,7 +132,7 @@ pipeline {
         stage('Update deployment Manifest') {
             steps {
                 dir("DevOps_MasterPiece-CD-with-argocd/yamls") {
-                    sh 'sed -i "s#praveensirvi.*#${IMAGE_REPO}/${NAME}:${VERSION}-${GIT_COMMIT}#g" deployment.yaml'
+                    sh 'sed -i "s#ujjawaldevops.*#${IMAGE_REPO}/${NAME}:${VERSION}-${GIT_COMMIT}#g" deployment.yaml'
                     sh 'cat deployment.yaml'
                 }
             }
@@ -142,7 +142,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'GITHUB_TOKEN', variable: 'GITHUB_TOKEN')]) {
                     dir("DevOps_MasterPiece-CD-with-argocd/yamls") {
-                        sh "git config --global user.email 'praveen@gmail.com'"
+                        sh "git config --global user.email 'cehujjawal@gmail.com'"
                         sh 'git remote set-url origin https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}'
                         sh 'git checkout feature'
                         sh 'git add deployment.yaml'
