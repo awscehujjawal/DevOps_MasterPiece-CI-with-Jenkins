@@ -118,7 +118,8 @@ pipeline {
                         echo 'Cloned repo already exists - Pulling latest changes'
 
                         dir("DevOps_MasterPiece-CD-with-argocd") {
-                          sh 'git pull --ff-only'
+                          sh 'git config --global pull.ff only'
+                          sh 'git pull'  
                         }
 
                     } else {
